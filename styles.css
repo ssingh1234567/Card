@@ -1,0 +1,205 @@
+/* Grid layout */
+.container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    height: 100vh;
+    position: relative;
+}
+
+/* Full-screen centered image */
+.image-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;      /* full screen width */
+    height: 100vh;     /* full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    pointer-events: none; /* optional: lets clicks pass through */
+}
+
+.image-wrapper img {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Form stays in the right grid column */
+.form-wrapper {
+    grid-column: 2;
+    z-index: 20;
+    padding: 20px;
+    background: white; /* optional */
+    border-radius: 8px; /* optional */
+}
+
+.title {
+    grid-column: 1 / span 2; /* spans both columns */
+    text-align: center;
+    margin-top: 20px;
+    z-index: 10; /* above the image */
+    position: relative;
+}
+/* Page basics */
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    background-color: #f5d77b;
+}
+
+/* Title */
+header .title {
+    text-align: center;
+    margin: 30px 0 10px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Grid layout */
+.container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    height: calc(100vh - 120px);
+    position: relative;
+}
+
+/* Centered image */
+.image-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px; /* moves image down */
+    pointer-events: none;
+}
+
+.image-wrapper img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Form styling */
+.form-wrapper {
+    grid-column: 2;
+    z-index: 10;
+    background: white;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.form-wrapper label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.2s ease;
+}
+
+.form-wrapper input[type="text"]:focus,
+.form-wrapper textarea:focus {
+    border-color: #0077ff;
+    outline: none;
+}
+
+fieldset {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+legend {
+    font-weight: 600;
+}
+
+/* Submit button */
+button {
+    margin-top: 20px;
+    width: 10%;
+    padding: 12px;
+    background: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #005fcc;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+}
+
+/* -----------------------------------------
+   MOBILE & TABLET RESPONSIVE LAYOUT
+------------------------------------------*/
+@media (max-width: 900px) {
+
+    /* Stack layout instead of 4fr | 1fr */
+    .container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    /* Image becomes normal flow, not absolute */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
+        pointer-events: auto;
+    }
+
+    .image-wrapper img {
+        max-width: 95%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Form moves below the image */
+    .form-wrapper {
+        grid-column: 1;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    /* Title spacing */
+    .title {
+        margin-top: 20px;
+        font-size: 1.6rem;
+    }
+
+    /* Button full width on mobile */
+    button {
+        width: 100%;
+    }
+}
