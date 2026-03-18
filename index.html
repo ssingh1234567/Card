@@ -13,19 +13,20 @@
 
     <main class="container">
         <div class="image-wrapper">
-            <img src="retirementcard4.png" alt="Retirement Party Invitation">
+            <img src="retirementcard5.png" alt="Retirement Party Invitation">
         </div>
 
         <form id="rsvpForm" class="form-wrapper">
     <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" 
+    title="Letters only">
 
     <fieldset style="width: 300px;">
         <legend>Will you be attending the event?</legend>
         
 
         <label>
-            <input type="radio" name="answer" value="yes">
+            <input type="radio" name="answer" value="yes" required>
             Yes
         </label>
 
@@ -35,11 +36,11 @@
         </label>
     </fieldset>
 
-    <label for="adults">How many adults will be attending? (leave blank if none attending)</label>
-    <input type="text" id="adults" name="adults" >
+    <label for="adults">How many adults will be attending? (enter 0 if none attending)</label>
+    <input type="number" id="adults" name="adults" min="0" required>
 
-    <label for="children">How many children will be attending? (leave blank if none attending)</label>
-    <input type="text" id="children" name="children" >
+    <label for="children">How many children will be attending? (enter 0 if none attending)</label>
+    <input type="number" id="children" name="children" min="0" required>
 
     <label for="message">Extra Notes</label>
     <textarea id="message" name="notes" rows="1"></textarea>
