@@ -16,12 +16,13 @@
             <img src="retirementcard4.png" alt="Retirement Party Invitation">
         </div>
 
-        <form id="rsvpForm">
+        <form id="rsvpForm" class="form-wrapper">
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required>
 
     <fieldset style="width: 300px;">
         <legend>Will you be attending the event?</legend>
+        
 
         <label>
             <input type="radio" name="answer" value="yes">
@@ -33,6 +34,12 @@
             No
         </label>
     </fieldset>
+
+    <label for="adults">How many adults will be attending? (leave blank if none attending)</label>
+    <input type="text" id="adults" name="adults" >
+
+    <label for="children">How many children will be attending? (leave blank if none attending)</label>
+    <input type="text" id="children" name="children" >
 
     <label for="message">Extra Notes</label>
     <textarea id="message" name="notes" rows="1"></textarea>
@@ -47,6 +54,8 @@ document.getElementById("rsvpForm").addEventListener("submit", async function(e)
     const data = {
         name: document.getElementById("name").value,
         answer: document.querySelector("input[name='answer']:checked")?.value || "",
+        adults: document.getElementById("adults").value,
+        children: document.getElementById("children").value,
         notes: document.getElementById("message").value
     };
 
@@ -58,6 +67,7 @@ document.getElementById("rsvpForm").addEventListener("submit", async function(e)
     alert("Your response has been recorded!");
 });
 </script>
+
     </main>
 
 </body>
